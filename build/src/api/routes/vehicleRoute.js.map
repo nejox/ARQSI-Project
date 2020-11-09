@@ -1,0 +1,1 @@
+{"version":3,"file":"vehicleRoute.js","sourceRoot":"","sources":["../../../../src/api/routes/vehicleRoute.ts"],"names":[],"mappings":";;AAAA,qCAAoD;AACpD,2CAA2C;AAC3C,IAAI,kBAAkB,GAAG,OAAO,CAAC,qCAAqC,CAAC,CAAC;AAExE,MAAM,MAAM,GAAG,gBAAM,EAAE,CAAC;AAExB,kBAAe,CAAC,GAAW,EAAE,EAAE;IAC7B,GAAG,CAAC,GAAG,CAAC,WAAW,EAAE,MAAM,CAAC,CAAC;AAC/B,CAAC,CAAA"}
