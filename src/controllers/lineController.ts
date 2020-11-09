@@ -8,7 +8,7 @@ exports.getAll = function (req:Request, res: Response) {
 
 exports.get = function (req:Request, res: Response) {
     console.log("GET");
-
+    
     return res.json(req).status(200);
 }
 
