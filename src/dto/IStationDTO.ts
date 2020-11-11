@@ -1,4 +1,4 @@
-export interface IStationDTO {
+export default interface IStationDTO {
     name: string,
     shortName: string,
     lat: string;

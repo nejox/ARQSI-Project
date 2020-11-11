@@ -1,7 +1,7 @@
-import { IStop } from "./IStop";
+import { IStation } from "./IStation";
 
 export interface IPathNode {
-    node : IStop;
+    node : IStation;
     duration : number;
     distance : number;
 }

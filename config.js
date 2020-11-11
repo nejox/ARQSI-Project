@@ -39,29 +39,25 @@ export default {
   api: {
     prefix: '/api',
   },
-  /*
+  
   controller: {
-    role: {
-      name: "RoleController",
-      path: "../controllers/roleController"
+    station: {
+      name: "StationController",
+      path: "../controllers/stationController"
     }
   },
 
   repos: {
-    role: {
-      name: "RoleRepo",
-      path: "../repos/roleRepo"
-    },
-    user: {
-      name: "UserRepo",
-      path: "../repos/userRepo"
+    station: {
+      name: "StationRepo",
+      path: "../repos/stationRepo"
     }
   },
 
   services: {
-    role: {
-      name: "RoleService",
-      path: "../services/roleService"
+    station: {
+      name: "StationService",
+      path: "../services/stationService"
     }
-  },*/
+  },
 };

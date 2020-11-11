@@ -10,13 +10,11 @@ const logger_1 = __importDefault(require("./loaders/logger"));
 async function startServer() {
     const app = express_1.default();
     await require("./loaders").default({ expressApp: app });
-    app.listen(config_1.default.port, error => {
-        if (error) {
-            logger_1.default.error(error);
-            process.exit(1);
-            return;
-        }
-        logger_1.default.info("Server listening on port: ${config.port}");
+    app.listen(config_1.default.port, () => {
+        logger_1.default.info(`Server listening on port: ${config_1.default.port}`);
+    }).on('error', err => {
+        logger_1.default.error(err);
+        process.exit(1);
     });
 }
 startServer();

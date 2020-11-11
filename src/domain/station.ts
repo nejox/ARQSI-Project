@@ -2,7 +2,7 @@ import { AggregateRoot } from "../core/domain/AggregateRoot";
 import { UniqueEntityID } from "../core/domain/UniqueEntityID";
 import { Guard } from "../core/logic/Guard";
 import { Result } from "../core/logic/Result";
-import { StationId } from "./StationId";
+import { StationId } from "./stationId";
 
 interface StationProps {
     name: string,

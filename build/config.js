@@ -36,5 +36,27 @@ exports.default = {
     api: {
         prefix: '/api',
     },
+    controller: {
+        station: {
+            name: "StationController",
+            path: "../controllers/stationController"
+        }
+    },
+    repos: {
+        station: {
+            name: "StationRepo",
+            path: "../repos/stationRepo"
+        } /*,
+        user: {
+          name: "UserRepo",
+          path: "../repos/userRepo"
+        }*/
+    },
+    services: {
+        station: {
+            name: "StationService",
+            path: "../services/stationService"
+        }
+    },
 };
 //# sourceMappingURL=config.js.map

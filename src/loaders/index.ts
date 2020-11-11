@@ -1,5 +1,5 @@
 import expressLoader from './express';
-//import dependencyInjectorLoader from './dependencyInjector';
+import dependencyInjectorLoader from './dependencyInjector';
 import mongooseLoader from './mongoose';
 import Logger from './logger';
 import config from "../../config";
@@ -8,58 +8,58 @@ export default async ({ expressApp }) => {
     const mongoConnection = await mongooseLoader();
     Logger.info('DB loaded and connected!');
     
-    /*
-    const userSchema = {
+    
+    const stationSchema = {
         // compare with the approach followed in repos and services
-        name: 'userSchema',
-        schema: '../persistence/schemas/userSchema',
+        name: 'stationSchema',
+        schema: '../persistence/schemas/stationSchema',
       };
       
-      const roleSchema = {
+      /*const roleSchema = {
         // compare with the approach followed in repos and services
         name: 'roleSchema',
         schema: '../persistence/schemas/roleSchema',
-      };
+      };*/
     
-      const roleController = {
-        name: config.controller.role.name,
-        path: config.controller.role.path
+      const stationController = {
+        name: config.controller.station.name,
+        path: config.controller.station.path
       }
     
-      const roleRepo = {
-        name: config.repos.role.name,
-        path: config.repos.role.path
+      const stationRepo = {
+        name: config.repos.station.name,
+        path: config.repos.station.path
       }
-    
+    /*
       const userRepo = {
         name: config.repos.user.name,
         path: config.repos.user.path
       }
-    
-      const roleService = {
-        name: config.services.role.name,
-        path: config.services.role.path
+    */
+      const stationService = {
+        name: config.services.station.name,
+        path: config.services.station.path
       }
     
       await dependencyInjectorLoader({
         mongoConnection,
         schemas: [
-          userSchema,
-          roleSchema
+          stationSchema,
+          //roleSchema
         ],
         controllers: [
-          roleController
+          stationController
         ],
         repos: [
-          roleRepo,
-          userRepo
+          stationRepo,
+          //userRepo
         ],
         services: [
-          roleService
+          stationService
         ]
       });
       Logger.info('✌️ Schemas, Controllers, Repositories, Services, etc. loaded');
-      */
+      
 
     await expressLoader({ app: expressApp });
     Logger.info('Express loaded');
