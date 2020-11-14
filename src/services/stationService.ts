@@ -4,6 +4,7 @@ import config from "../../config";
 import { Result } from "../core/logic/Result";
 import { Station } from "../domain/station";
 import IStationDTO from "../dto/IStationDTO";
+import IStationDTOcollection from "../dto/IStationDTOcolletion";
 import { StationMap } from "../mappers/StationMap";
 import { IStationRepo } from "../repos/Interfaces/IStationRepo";
 import IStationService from "./IStationService";
@@ -34,17 +35,66 @@ export default class StationService implements IStationService {
             throw error;
         }
     }
+
     public async updateStation(stationDTO: IStationDTO): Promise<Result<IStationDTO>> {
-        throw new Error("Method not implemented.");
+        try {
+            const station = await this.stationRepo.readById(stationDTO.stationId);
+
+            if (station === null) {
+                return Result.fail<IStationDTO>("Station not found");
+            } else {
+                station.isDepot = stationDTO.isDepot;
+                station.isReliefPoint = stationDTO.isReliefPoint;
+                station.capacity = stationDTO.capacity;
+                await this.stationRepo.save(station);
+
+                const stationDTOResult = StationMap.toDTO(station) as IStationDTO;
+                return Result.ok<IStationDTO>(stationDTOResult);
+            }
+
+        } catch (error) {
+            throw error;
+        }
     }
-    public async deleteStation(stationDTO: IStationDTO): Promise<Result<IStationDTO>> {
-        throw new Error("Method not implemented.");
+
+    public async deleteStation(stationId: string) {
+        try {
+
+            await this.stationRepo.delete(stationId);
+
+        } catch (error) {
+            throw error;
+        }
     }
-    public async getStation(stationDTO: IStationDTO): Promise<Result<IStationDTO>> {
-        throw new Error("Method not implemented.");
+
+    public async getStation(stationId: string): Promise<Result<IStationDTO>> {
+
+        try {
+
+            const station = await this.stationRepo.readById(stationId);
+            if (station === null) {
+                return Result.fail<IStationDTO>("Station not found");
+            } else {
+                const stationDTORes = StationMap.toDTO(station) as IStationDTO;
+                return Result.ok<IStationDTO>(stationDTORes);
+            }
+
+        } catch (error) {
+            throw error;
+        }
     }
-    public async getStations(stationDTO: IStationDTO): Promise<Result<IStationDTO>> {
-        return null;
+
+    public async getStations(stationDTO: IStationDTO): Promise<Result<IStationDTOcollection>> {
+
+        try {
+            const stationsList : Station[] = await this.stationRepo.readAll();
+            stationsList.map( station => StationMap.toDTO(station) as IStationDTO);
+            return Result.ok<IStationDTOcollection>({stations : stationsList.map( station => StationMap.toDTO(station) as IStationDTO)});
+
+        } catch (error) {
+            throw error;
+        }
+
     }
 
 

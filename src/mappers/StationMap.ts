@@ -1,32 +1,28 @@
 import { Mapper } from "../core/infra/Mapper";
 
-import { Document, Model } from 'mongoose';
 import { Station } from "../domain/station";
-import { IStationDTO } from "../dto/IStationDTO";
-import { Container } from "typedi";
+import IStationDTO from "../dto/IStationDTO";
 
-import StationRepo from "../repos/stationRepo";
 import { UniqueEntityID } from "../core/domain/UniqueEntityID";
-import LoggerInstance from "../loaders/logger";
+import { IStationPersistence } from "../persistence/IStationPersistence";
+import { Document, Model } from "mongoose";
 
 export class StationMap extends Mapper<Station> {
 
     public static toDTO(station: Station): IStationDTO {
         return {
-            id: station.id.toString(),
+            stationId: station.id.toString(),
             shortName: station.shortName,
             name: station.name,
             lat: station.lat,
             long: station.long,
             isDepot: station.isDepot,
-            isReliefPoint: station.isReliefpoint,
+            isReliefPoint: station.isReliefPoint,
             capacity: station.capacity
         } as IStationDTO;
     }
 
-    public static async toDomain(raw: any): Promise<Station> {
-        const repo = Container.get(StationRepo);
-        
+    public static toDomain(raw: any | Model<IStationPersistence & Document>): Station {
         const stationOrError = Station.create({
                 name: raw.name,
                 shortName: raw.shortName,
@@ -35,7 +31,7 @@ export class StationMap extends Mapper<Station> {
                 isDepot: raw.isDepot,
                 isReliefPoint: raw.isReliefPoint,
                 capacity: raw.capacity,
-        }, new UniqueEntityID(raw.base_station_id));
+        }, new UniqueEntityID(raw.stationId));
 
         stationOrError.isFailure ? console.log(stationOrError.error) : '';
 
@@ -45,13 +41,13 @@ export class StationMap extends Mapper<Station> {
 
     public static toPersistence(station: Station): any {
         const a = {
-            id: station.id.toString(),
+            stationId: station.id.toString(),
             shortName: station.shortName,
             name: station.name,
             lat: station.lat,
             long: station.long,
             isDepot: station.isDepot,
-            isReliefPoint: station.isReliefpoint,
+            isReliefPoint: station.isReliefPoint,
             capacity: station.capacity
         }
         return a;

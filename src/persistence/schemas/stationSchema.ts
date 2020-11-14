@@ -1,10 +1,14 @@
-import { IStation } from "../../models/IStation";
+
 import mongoose from "mongoose";
-import { boolean, number } from "joi";
 import { IStationPersistence } from "../IStationPersistence";
 
 const Station = new mongoose.Schema(
     {
+        stationId: {
+            type: String,
+            unique: true,
+            required: true
+        },
         name: {
             type: String,
             required: [true, "Please enter Stop name"],
@@ -15,6 +19,7 @@ const Station = new mongoose.Schema(
             type: String,
             required: [true, "Please enter the short name"],
             index: true,
+            unique: true
         },
 
         lat: String,

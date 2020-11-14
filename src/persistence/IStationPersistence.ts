@@ -1,5 +1,5 @@
 export interface IStationPersistence {
-    _id: string,
+    stationId: string,
     name: string,
     shortName: string,
     lat: string;

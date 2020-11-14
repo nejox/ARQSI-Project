@@ -4,7 +4,6 @@ export interface Repo<T> {
   save (t: T): Promise<T>;
   //create (t: T): String;
   //update(t: T);
-  delete(s: String);
+//  delete(s: String);
   //readById(s: String): Promise<T>;
-  readAll(): Promise<Array<T>>;
 }

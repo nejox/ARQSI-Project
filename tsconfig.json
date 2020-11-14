@@ -20,6 +20,8 @@
     "outDir": "./build",
     "allowJs": true,
     "noEmit": false,
+    "strict": false,
+    "noImplicitUseStrict": true,
     "esModuleInterop": true
   },
   "include": [

@@ -44,12 +44,24 @@ export class Station extends AggregateRoot<StationProps> {
         return this.props.isDepot;
     }
 
-    get isReliefpoint(): boolean {
+    set isDepot(value: boolean) {
+        this.props.isDepot = value;
+    }
+
+    get isReliefPoint(): boolean {
         return this.props.isReliefPoint;
+    }
+
+    set isReliefPoint(value: boolean) {
+        this.props.isReliefPoint = value;
     }
 
     get capacity(): number {
         return this.props.capacity;
+    }
+
+    set capacity(value: number) {
+        this.props.capacity = value;
     }
 
     private constructor(props: StationProps, id?: UniqueEntityID) {
