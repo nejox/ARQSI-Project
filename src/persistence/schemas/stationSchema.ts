@@ -12,13 +12,13 @@ const Station = new mongoose.Schema(
         name: {
             type: String,
             required: [true, "Please enter Stop name"],
-            index: true,
+            //index: true,
         },
 
         shortName: {
             type: String,
             required: [true, "Please enter the short name"],
-            index: true,
+            //index: true,
             unique: true
         },
 

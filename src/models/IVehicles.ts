@@ -4,7 +4,7 @@ export interface IVehicle {
     autonomy: number;
     cost: number;
     averageSpeed: number;
-    energySource: string;
+    energySource: number;
     consumption: number;
     emissions: number;
 }

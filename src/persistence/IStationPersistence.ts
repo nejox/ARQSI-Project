@@ -1,7 +1,7 @@
 export interface IStationPersistence {
-    stationId: string,
-    name: string,
-    shortName: string,
+    stationId: string;
+    name: string;
+    shortName: string;
     lat: string;
     long: string;
     isDepot: boolean;

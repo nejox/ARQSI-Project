@@ -1,25 +1,29 @@
 import { Router, Request, Response } from 'express';
-//import middlewares from '../middlewares';
-var vehicle_controller = require('../../controllers/vehicleController');
+import Container from 'typedi';
+import config from '../../../config';
+import IVehicleTypeController from '../../controllers/IController/IVehicleTypeController';
 
 const router = Router();
 
 export default (app: Router) => {
-  app.use('/vehicles', router);
+  app.use("/vehicleTypes", router);
+  //app.use('/lines/:lineId/vehicles', router);
+
+  const cntrllr = Container.get(config.controller.vehicleType.name) as IVehicleTypeController;
 
   //get all
-  router.get("", vehicle_controller.getAll);
+  router.get("", (req, res, next) => cntrllr.getVehicleTypes(req,res,next));
 
   //get single
-  router.get("/:vehicleId", vehicle_controller.get);
+  router.get("/:vehicleId", (req, res, next) => cntrllr.getVehicleType(req,res,next));
 
   //update
-  router.put("/:vehicleId", vehicle_controller.put);
+  router.put("/:vehicleId", (req, res, next) => cntrllr.updateVehicleType(req,res,next));
 
   //post
-  router.post("", vehicle_controller.post);
+  router.post("", (req, res, next) => cntrllr.createVehicleType(req,res,next));
 
   //delete
-  router.delete("/:vehicleId", vehicle_controller.delete);
+  router.delete("/:vehicleId", (req, res, next) => cntrllr.deleteVehicleType(req,res,next));
 
 }

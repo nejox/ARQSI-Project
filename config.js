@@ -44,6 +44,14 @@ export default {
     station: {
       name: "StationController",
       path: "../controllers/stationController"
+    },
+    line:{
+      name: "LineController",
+      path: "../controllers/lineController"
+    },
+    vehicleType:{
+      name: "VehicleTypeController",
+      path: "../controllers/vehicleTypeController"
     }
   },
 
@@ -51,6 +59,14 @@ export default {
     station: {
       name: "StationRepo",
       path: "../repos/stationRepo"
+    },
+    line:{
+      name: "LineRepo",
+      path: "../repos/lineRepo"
+    },
+    vehicleType:{
+      name: "VehicleTypeRepo",
+      path: "../repos/vehicleTypeRepo"
     }
   },
 
@@ -58,6 +74,14 @@ export default {
     station: {
       name: "StationService",
       path: "../services/stationService"
+    },
+    line:{
+      name: "LineService",
+      path: "../services/lineService"
+    },
+    vehicleType:{
+      name: "VehicleTypeService",
+      path: "../services/vehicleTypeService"
     }
   },
 };

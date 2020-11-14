@@ -52,6 +52,7 @@ export default class StationController extends BaseController implements IStatio
             return next(error);
         }
     };
+
     public async deleteStation(req: Request, res: Response, next: NextFunction) {
         try {
             await this.stationServiceInstance.deleteStation(req.params.stationId);
@@ -67,7 +68,10 @@ export default class StationController extends BaseController implements IStatio
             const stationOrError = await this.stationServiceInstance.getStation(req.params.stationId) as Result<IStationDTO>;
 
             if (stationOrError.isFailure) {
-                return this.fail(stationOrError.error.toString()).send();
+                let msg = stationOrError.error.toString();
+                //schmeißt error 
+                //return this.notFound(msg).send();
+                return res.status(404).send(msg);
             }
 
             const stationDTO = stationOrError.getValue();
@@ -82,7 +86,10 @@ export default class StationController extends BaseController implements IStatio
             const stationOrError = await this.stationServiceInstance.getStations(req.body as IStationDTO) as Result<IStationDTOcollection>;
 
             if (stationOrError.isFailure) {
-                return this.fail(stationOrError.error.toString()).send();
+                let msg = stationOrError.error.toString();
+                //schmeißt error 
+                //return this.notFound(msg).send();
+                return res.status(404).send(msg);
             }
 
             const stationDTOcollection = stationOrError.getValue();

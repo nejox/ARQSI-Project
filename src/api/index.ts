@@ -8,8 +8,8 @@ export default () => {
 	const app = Router();
 
 	//auth(app);
-	//line(app);
-    //vehicle(app);
+	line(app);
+    vehicle(app);
     station(app);
 	
 	return app

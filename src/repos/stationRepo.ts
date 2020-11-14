@@ -90,11 +90,11 @@ export default class StationRepo implements IStationRepo {
             throw error;
         }
     }
-    
+
     public async readAll(): Promise<Station[]> {
 
         let allDocuments = await this.stationSchema.find();
-        return allDocuments.map((station) => StationMap.toDomain(station) as unknown as Station);
+        return allDocuments.map((station) => StationMap.toDomain(station) as Station);
 
     }
 }

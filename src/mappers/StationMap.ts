@@ -40,7 +40,7 @@ export class StationMap extends Mapper<Station> {
     }
 
     public static toPersistence(station: Station): any {
-        const a = {
+        return  {
             stationId: station.id.toString(),
             shortName: station.shortName,
             name: station.name,
@@ -50,7 +50,6 @@ export class StationMap extends Mapper<Station> {
             isReliefPoint: station.isReliefPoint,
             capacity: station.capacity
         }
-        return a;
     }
 
 }

@@ -87,8 +87,7 @@ export default class StationService implements IStationService {
     public async getStations(stationDTO: IStationDTO): Promise<Result<IStationDTOcollection>> {
 
         try {
-            const stationsList : Station[] = await this.stationRepo.readAll();
-            stationsList.map( station => StationMap.toDTO(station) as IStationDTO);
+            const stationsList = await this.stationRepo.readAll();
             return Result.ok<IStationDTOcollection>({stations : stationsList.map( station => StationMap.toDTO(station) as IStationDTO)});
 
         } catch (error) {

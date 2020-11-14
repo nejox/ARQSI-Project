@@ -5,8 +5,8 @@ import { Result } from "../core/logic/Result";
 import { StationId } from "./stationId";
 
 interface StationProps {
-    name: string,
-    shortName: string,
+    name: string;
+    shortName: string;
     lat: string;
     long: string;
     isDepot: boolean;
