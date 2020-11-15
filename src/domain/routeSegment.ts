@@ -1,17 +1,18 @@
 import { Entity } from "../core/domain/Entity";
 import { Station } from "./station";
+import { StationId } from "./stationId";
 
 
-interface RouteStationProps {
-    station: Station;
+interface RouteSegmentProps {
+    stationId: StationId;
     duration : number;
     distance : number;
 }
 
-export class RouteStation extends Entity<RouteStationProps> {
+export class RouteSegment extends Entity<RouteSegmentProps> {
 
-    get station(): Station{
-        return this.props.station;
+    get stationId(): StationId{
+        return this.props.stationId;
     }
 
     get duration(): number{

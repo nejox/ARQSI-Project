@@ -3,6 +3,8 @@ import dependencyInjectorLoader from './dependencyInjector';
 import mongooseLoader from './mongoose';
 import Logger from './logger';
 import config from "../../config";
+import { mongo } from 'mongoose';
+import routeRoute from '../api/routes/routeRoute';
 
 export default async ({ expressApp }) => {
   const mongoConnection = await mongooseLoader();
@@ -10,7 +12,6 @@ export default async ({ expressApp }) => {
 
 
   const stationSchema = {
-    // compare with the approach followed in repos and services
     name: 'stationSchema',
     schema: '../persistence/schemas/stationSchema',
   };
@@ -60,27 +61,72 @@ export default async ({ expressApp }) => {
     name: config.services.vehicleType.name,
     path: config.services.vehicleType.path
   }
+
+  const routeSchema = {
+    name: 'routeSchema',
+    schema: '../persistence/schemas/routeSchema',
+  }
+  const routeController = {
+    name: config.controller.route.name,
+    path: config.controller.route.path,
+  }
+  const routeRepo = {
+    name: config.repos.route.name,
+    path: config.repos.route.path
+  }
+  const routeService = {
+    name: config.services.route.name,
+    path: config.services.route.path
+  }
+
+
+  const lineRouteController = {
+    name: config.controller.lineRoute.name,
+    path: config.controller.lineRoute.path
+  }
+  const lineRouteService = {
+    name: config.services.lineRoute.name,
+    path: config.services.lineRoute.path
+  }
+
+  const lineVehicleTypeController = {
+    name: config.controller.lineVehicleType.name,
+    path: config.controller.lineVehicleType.path
+  }
+  const lineVehicleTypeService = {
+    name: config.services.lineVehicleType.name,
+    path: config.services.lineVehicleType.path
+  }
+
   await dependencyInjectorLoader({
     mongoConnection,
     schemas: [
       stationSchema,
       lineSchema,
-      vehicleTypeSchema
+      vehicleTypeSchema,
+      routeSchema,
     ],
     controllers: [
       stationController,
       lineController,
-      vehicleTypeController
+      vehicleTypeController,
+      routeController,
+      lineRouteController,
+      lineVehicleTypeController
     ],
     repos: [
       stationRepo,
       lineRepo,
-      vehicleTypeRepo
+      vehicleTypeRepo,
+      routeRepo,
     ],
     services: [
       stationService,
       lineService,
-      vehicleTypeService
+      vehicleTypeService,
+      routeService,
+      lineRouteService,
+      lineVehicleTypeService
     ]
   });
   Logger.info('✌️ Schemas, Controllers, Repositories, Services, etc. loaded');

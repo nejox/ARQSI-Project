@@ -6,6 +6,7 @@ import { Result } from '../core/logic/Result';
 import ILineDTO from '../dto/ILineDTO';
 import ILineDTOcollection from '../dto/ILineDTOcollection';
 import ILineService from '../services/ILineService';
+import IRouteService from '../services/IRouteService';
 import ILineController from './IController/ILineController';
 
 export default class LineController extends BaseController implements ILineController {
@@ -26,7 +27,7 @@ export default class LineController extends BaseController implements ILineContr
             const lineOrError = await this.lineServiceInstance.createLine(req.body as ILineDTO) as Result<ILineDTO>;
 
             if (lineOrError.isFailure) {
-                return this.fail(lineOrError.error.toString()).send();
+                return this.fail(res, lineOrError.error.toString()).send();
             }
             this.created(res);
 
@@ -40,7 +41,7 @@ export default class LineController extends BaseController implements ILineContr
             req.body.lineId = req.params.lineId;
             const lineOrError = await this.lineServiceInstance.updateLine(req.body as ILineDTO) as Result<ILineDTO>;
             if (lineOrError.isFailure) {
-                return this.fail(lineOrError.error.toString()).send();
+                return this.fail(res, lineOrError.error.toString()).send();
             }
             const lineDTO = lineOrError.getValue();
             return this.ok<ILineDTO>(res, lineDTO).send();
@@ -67,8 +68,7 @@ export default class LineController extends BaseController implements ILineContr
 
             const lineOrError = await this.lineServiceInstance.getLine(req.params.lineId) as Result<ILineDTO>;
             if (lineOrError.isFailure) {
-                let msg = lineOrError.error.toString();
-                return res.status(404).send(msg);
+                return this.notFound(res, lineOrError.error.toString()).send();
             }
 
             const lineDTO = lineOrError.getValue();
@@ -83,8 +83,7 @@ export default class LineController extends BaseController implements ILineContr
         try {
             const lineOrError = await this.lineServiceInstance.getLines(req.body as ILineDTO) as Result<ILineDTOcollection>;
             if (lineOrError.isFailure) {
-                let msg = lineOrError.error.toString();
-                return res.status(404).send(msg);
+                return this.notFound(res, lineOrError.error.toString()).send();
             }
 
             const lineDTOcollection = lineOrError.getValue();

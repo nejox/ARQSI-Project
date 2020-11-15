@@ -43,8 +43,12 @@ export default class LineService implements ILineService {
                 return Result.fail<ILineDTO>("Line not found");
             } else {
                 line.name = lineDTO.name;
+                line.code = lineDTO.code;
                 line.description = lineDTO.description;
                 line.color = lineDTO.color;
+                line.lineRoutes = lineDTO.lineRoutes;
+                line.allowedVehicles = lineDTO.allowedVehicles;
+                line.deniedVehicles = lineDTO.deniedVehicles;
                 await this.lineRepo.save(line);
 
                 const lineDTOres = LineMap.toDTO(line) as ILineDTO;

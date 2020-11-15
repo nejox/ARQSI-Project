@@ -1,0 +1,397 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "ARQSI Project",
+    "contact": {}
+  },
+  "host": "localhost:3000",
+  "basePath": "/api",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/stations/61bc7866-45d2-4a00-a601-027523e7fc90": {
+      "delete": {
+        "description": "PUT Station",
+        "summary": "http://localhost:3000/api/stations/61bc7866-45d2-4a00-a601-027523e7fc90",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "http://localhost:3000/api/stations/61bc7866-45d2-4a00-a601-027523e7fc90",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
+      "get": {
+        "description": "get single",
+        "summary": "http://localhost:3000/api/stations/id",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "http://localhost:3000/api/stations/id",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/stations": {
+      "post": {
+        "description": "post t1",
+        "summary": "http://localhost:3000/api/stations/",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "http://localhost:3000/api/stations/",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/http%3A~1~1localhost%3A3000~1api~1stations~1request"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
+      "get": {
+        "description": "get all",
+        "summary": "http://localhost:3000/api/stations/",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "Gethttp://localhost:3000/api/stations/",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/lines": {
+      "post": {
+        "description": "get all lines\r\n",
+        "summary": "http://localhost:3000/api/lines",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "http://localhost:3000/api/lines",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/http%3A~1~1localhost%3A3000~1api~1linesrequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
+      "get": {
+        "description": "get all",
+        "summary": "http://localhost:3000/api/lines",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "Gethttp://localhost:3000/api/lines",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/vehicleTypes": {
+      "post": {
+        "description": "post vehicleType",
+        "summary": "http://localhost:3000/api/vehicleTypes",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "http://localhost:3000/api/vehicleTypes",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/http%3A~1~1localhost%3A3000~1api~1vehicleTypesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
+      "get": {
+        "summary": "http://localhost:3000/api/vehicleTypes/",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "http://localhost:3000/api/vehicleTypes/",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/lines/62d784f2-8b10-445b-841b-f20a8a4a7469/routes": {
+      "get": {
+        "description": "subroutes\r\n",
+        "summary": "http://localhost:3000/api/lines/62d784f2-8b10-445b-841b-f20a8a4a7469/routes",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "http://localhost:3000/api/lines/62d784f2-8b10-445b-841b-f20a8a4a7469/routes",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "http://localhost:3000/api/stations/request": {
+      "title": "http://localhost:3000/api/stations/request",
+      "example": {
+        "shortName": "LORDL",
+        "name": "Lordelo",
+        "lat": "41.2452627470645",
+        "long": "-8.42293614720057",
+        "isDepot": false,
+        "isReliefPoint": true,
+        "capacity": 0
+      },
+      "type": "object",
+      "properties": {
+        "shortName": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "lat": {
+          "type": "string"
+        },
+        "long": {
+          "type": "string"
+        },
+        "isDepot": {
+          "type": "boolean"
+        },
+        "isReliefPoint": {
+          "type": "boolean"
+        },
+        "capacity": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "shortName",
+        "name",
+        "lat",
+        "long",
+        "isDepot",
+        "isReliefPoint",
+        "capacity"
+      ]
+    },
+    "http://localhost:3000/api/linesrequest": {
+      "title": "http://localhost:3000/api/linesrequest",
+      "example": {
+        "name": "Paredes_Aguiar",
+        "code": "500",
+        "description": "Driving around the city yooo",
+        "color": "RGB(38,91,11)",
+        "lineRoutes": [
+          {
+            "routeId": "ed2de99d-1305-4d23-b1e4-7e7275297cf2",
+            "orientation": "Return"
+          },
+          {
+            "routeId": "4095cb9b-183b-46fd-ba95-d4ad9a15355c",
+            "orientation": "Go"
+          }
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "color": {
+          "type": "string"
+        },
+        "lineRoutes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LineRoute"
+          }
+        }
+      },
+      "required": [
+        "name",
+        "code",
+        "description",
+        "color",
+        "lineRoutes"
+      ]
+    },
+    "LineRoute": {
+      "title": "LineRoute",
+      "example": {
+        "routeId": "ed2de99d-1305-4d23-b1e4-7e7275297cf2",
+        "orientation": "Return"
+      },
+      "type": "object",
+      "properties": {
+        "routeId": {
+          "type": "string"
+        },
+        "orientation": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "routeId",
+        "orientation"
+      ]
+    },
+    "http://localhost:3000/api/vehicleTypesRequest": {
+      "title": "http://localhost:3000/api/vehicleTypesRequest",
+      "example": {
+        "name": "MiniAutocarro",
+        "autonomy": "600000",
+        "cost": "5",
+        "avgSpeed": "32",
+        "energySrc": "23",
+        "consumption": "18",
+        "emissions": "700"
+      },
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "autonomy": {
+          "type": "string"
+        },
+        "cost": {
+          "type": "string"
+        },
+        "avgSpeed": {
+          "type": "string"
+        },
+        "energySrc": {
+          "type": "string"
+        },
+        "consumption": {
+          "type": "string"
+        },
+        "emissions": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "autonomy",
+        "cost",
+        "avgSpeed",
+        "energySrc",
+        "consumption",
+        "emissions"
+      ]
+    }
+  },
+  "tags": [
+    {
+      "name": "Misc",
+      "description": ""
+    }
+  ]
+}

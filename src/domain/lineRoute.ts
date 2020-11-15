@@ -1,25 +1,24 @@
-import { AggregateRoot } from "../core/domain/AggregateRoot";
+
 import { Entity } from "../core/domain/Entity";
 import { LineRouteId } from "./lineRouteId";
-import { Route } from "./Route";
+import { RouteId } from "./routeId";
 
 interface LineRouteProps {
-    route: Route;
+    routeId: RouteId;
     orientation: string;
 }
 
-export class LineRoute extends AggregateRoot<LineRouteProps> {
-
-    get linePathId(): LineRouteId {
-        return LineRouteId.caller(this.id);
-    }
-
-    get route(): Route {
-        return this.props.route;
+export class LineRoute extends Entity<LineRouteProps> {
+    get routeId(): RouteId {
+        return this.props.routeId;
     }
 
     get orientation(): string {
         return this.props.orientation;
+    }
+
+    set orientation(value: string){
+        this.props.orientation = value;
     }
 
 }

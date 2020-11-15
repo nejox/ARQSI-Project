@@ -1,7 +1,7 @@
 import { RouteSegment } from "../domain/routeSegment";
 
-export default interface IRouteDTO {
+export interface IRoutePersistence {
     routeId: string;
     isEmpty: boolean;
-    routeNodes: RouteSegment[];
+    routeNodes:  RouteSegment[];
 }

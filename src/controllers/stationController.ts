@@ -29,7 +29,6 @@ export default class StationController extends BaseController implements IStatio
             if (stationOrError.isFailure) {
                 return this.fail(stationOrError.error.toString()).send();
             }
-            const stationDTO = stationOrError.getValue();
             return this.created(res);
 
         } catch (error) {

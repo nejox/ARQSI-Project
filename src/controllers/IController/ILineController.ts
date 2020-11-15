@@ -6,4 +6,5 @@ export default interface ILineController {
     deleteLine(req: Request, res: Response, next: NextFunction);
     getLine(req: Request, res: Response, next: NextFunction);
     getLines(req: Request, res: Response, next: NextFunction);
+    
 }

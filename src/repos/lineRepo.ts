@@ -37,9 +37,13 @@ export default class LineRepo implements ILineRepo {
             } else {
                 const lineDoc = await this.lineSchema.findOne(query);
 
+                lineDoc.code = line.code;
                 lineDoc.description = line.description;
                 lineDoc.color = line.color;
                 lineDoc.name = line.name;
+                lineDoc.lineRoutes = line.lineRoutes;
+                lineDoc.allowedVehicles = line.allowedVehicles;
+                lineDoc.deniedVehicles = line.deniedVehicles;
                 await lineDoc.save();
 
                 return line;

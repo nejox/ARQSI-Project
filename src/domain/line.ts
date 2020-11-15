@@ -2,18 +2,19 @@ import { AggregateRoot } from "../core/domain/AggregateRoot";
 import { UniqueEntityID } from "../core/domain/UniqueEntityID";
 import { Guard } from "../core/logic/Guard";
 import { Result } from "../core/logic/Result";
-import { DriverType } from "./driverType";
 import { LineId } from "./lineId";
 import { LineRoute } from "./lineRoute";
-import { VehicleType } from "./VehicleType";
+import { LineVehicleType } from "./lineVehicleType";
+import { VehicleTypeId} from "./vehicleTypeId";
 
 interface LineProps {
     name: string;
+    code: string;
     description: string;
     color: string;
-    //lineRoutes: LineRoute[];
-    //allowedVehicles: VehicleType[];
-    //deniedVehicles: VehicleType[];
+    lineRoutes?: LineRoute[];
+    allowedVehicles?: LineVehicleType[];
+    deniedVehicles?: LineVehicleType[];
     //allowedDrivers: DriverType[];
     //deniedDrivers: DriverType[];
 }
@@ -32,6 +33,14 @@ export class Line extends AggregateRoot<LineProps> {
         this.props.name = value;
     }
 
+    get code(): string {
+        return this.props.code;
+    }
+
+    set code(value : string){
+        this.props.code = value;
+    }
+
     get description(): string {
         return this.props.description;
     }
@@ -48,17 +57,28 @@ export class Line extends AggregateRoot<LineProps> {
         this.props.color = value;
     }
 
-    // get lineRoutes(): LineRoute[] {
-    //     return this.props.lineRoutes;
-    // }
+    get lineRoutes(): LineRoute[] {
+        return this.props.lineRoutes;
+    }
 
-    // get allowedVehicles(): VehicleType[] {
-    //     return this.props.allowedVehicles;
-    // }
+    set lineRoutes(value: LineRoute[]){
+        this.props.lineRoutes = value;
+    }
 
-    // get deniedVehicles(): VehicleType[] {
-    //     return this.props.deniedVehicles;
-    // }
+    get allowedVehicles(): LineVehicleType[] {
+        return this.props.allowedVehicles;
+    }
+
+    set allowedVehicles(value: LineVehicleType[]){
+        this.props.allowedVehicles = value;
+    }
+
+    get deniedVehicles(): LineVehicleType[] {
+        return this.props.deniedVehicles;
+    }
+    set deniedVehicles(value: LineVehicleType[]){
+        this.props.deniedVehicles = value;
+    }
     // get allowedDrivers(): DriverType[] {
     //     return this.props.allowedDrivers;
     // }
@@ -73,6 +93,7 @@ export class Line extends AggregateRoot<LineProps> {
     public static create(props: LineProps, id?: UniqueEntityID): Result<Line> {
         const guardedProps = [
             { argument: props.name, argumentName: 'name' },
+            { argument: props.code, argumentName: 'code' },
             { argument: props.description, argumentName: 'description' },
             { argument: props.color, argumentName: 'color' },
         ];

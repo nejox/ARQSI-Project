@@ -15,15 +15,15 @@ export default (app: Router) => {
   router.get("", (req, res, next) => cntrllr.getVehicleTypes(req,res,next));
 
   //get single
-  router.get("/:vehicleId", (req, res, next) => cntrllr.getVehicleType(req,res,next));
+  router.get("/:vehicleTypeId", (req, res, next) => cntrllr.getVehicleType(req,res,next));
 
   //update
-  router.put("/:vehicleId", (req, res, next) => cntrllr.updateVehicleType(req,res,next));
+  router.put("/:vehicleTypeId", (req, res, next) => cntrllr.updateVehicleType(req,res,next));
 
   //post
   router.post("", (req, res, next) => cntrllr.createVehicleType(req,res,next));
 
   //delete
-  router.delete("/:vehicleId", (req, res, next) => cntrllr.deleteVehicleType(req,res,next));
+  router.delete("/:vehicleTypeId", (req, res, next) => cntrllr.deleteVehicleType(req,res,next));
 
 }

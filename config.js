@@ -52,6 +52,18 @@ export default {
     vehicleType:{
       name: "VehicleTypeController",
       path: "../controllers/vehicleTypeController"
+    },
+    route:{
+      name: "RouteController",
+      path: "../controllers/routeController"
+    },
+    lineRoute:{
+      name: "LineRouteController",
+      path: "../controllers/lineRouteController"
+    },
+    lineVehicleType:{
+      name: "LineVehicleTypeController",
+      path: "../controllers/lineVehicleTypeController"
     }
   },
 
@@ -67,6 +79,10 @@ export default {
     vehicleType:{
       name: "VehicleTypeRepo",
       path: "../repos/vehicleTypeRepo"
+    },
+    route:{
+      name: "RouteRepo",
+      path: "../repos/RouteRepo"
     }
   },
 
@@ -82,6 +98,18 @@ export default {
     vehicleType:{
       name: "VehicleTypeService",
       path: "../services/vehicleTypeService"
+    },
+    route:{
+      name: "RouteService",
+      path: "../services/routeService"
+    },
+    lineRoute:{
+      name: "LineRouteService",
+      path: "../services/lineRouteService"
+    },
+    lineVehicleType:{
+      name: "LineVehicleTypeService",
+      path: "../services/lineVehicleTypeService"
     }
   },
 };
